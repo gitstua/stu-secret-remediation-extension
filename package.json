@@ -1,41 +1,92 @@
 {
-    "name": "stu-secret-remediation-extension",
-    "displayName": "Stu Secret Remediation Extension",
-    "description": "An extension to get secret alerts from a GitHub repository",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.50.0"
-    },
-    "activationEvents": [
-        "onCommand:extension.getSecretScanningAlerts",
-        "onCommand:extension.setGitHubToken"
-    ],
-    "main": "./out/extension.js",
-    "contributes": {
-        "commands": [
-            {
-                "command": "extension.getSecretScanningAlerts",
-                "title": "Get Secret Scanning Alerts from GitHub Repo"
-            },
-            {
-                "command": "extension.setGitHubToken",
-                "title": "Set GitHub Token"
-            }
-        ]
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install"
-    },
-    "devDependencies": {
-        "@types/node": "^14.14.6",
-        "@vscode/vsce": "3.2.1",
-        "typescript": "^4.0.3",
-        "vscode": "^1.1.37"
-    },
-    "dependencies": {
-        "axios": "^0.21.1"
-    }
+	"name": "dadstaxi-chat-sample",
+	"publisher": "StuartEggerton",
+	"displayName": "dadstaxi Copilot Chat Sample",
+	"description": "Sample chat extension, dadstaxi.",
+  "icon": "taxi-image.jpg",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/gitstua/copilot-extension-dadstaxi"
+	},
+	"version": "0.1.4",
+	"engines": {
+		"vscode": "^1.95.0"
+	},
+	"categories": [
+		"AI",
+		"Chat"
+	],
+	"activationEvents": [],
+	"contributes": {
+		"chatParticipants": [
+			{
+				"id": "chat-sample.dadstaxi",
+				"fullName": "DadsTaxi",
+				"name": "dadstaxi",
+				"description": "are you going to /book or check /bookings?",
+				"isSticky": true,
+				"commands": [
+					{
+						"name": "help",
+						"description": "get help"
+					},
+					{
+						"name": "book",
+						"description": "make a booking"
+					},
+					{
+						"name": "bookings",
+						"description": "List bookings"
+					},
+					{
+						"name": "examplebooking",
+						"description": "Example booking for demo"
+					},
+          {
+            "name": "dadjoke",
+            "description": "Get a random dad joke - example of using AI model"
+          },
+          {
+            "name": "clpy",
+            "description": "Easter egg"
+          }
+				],
+				"disambiguation": [
+					{
+						"categoryName": "cat",
+						"description": "The user wants to learn a specific computer science topic in an informal way.",
+						"examples": [
+							"Teach me C++ pointers using metaphors",
+							"Explain to me what is a linked list in a simple way",
+							"Can you explain to me what is a function in programming?"
+						]
+					}
+				]
+			}
+		],
+		"commands": [
+			{
+				"command": "cat.namesInEditor",
+				"title": "Use Cat Names in Editor"
+			}
+		]
+	},
+	"main": "./out/extension.js",
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint \"src/**/*.ts\"",
+		"watch": "tsc -watch -p ./"
+	},
+	"dependencies": {
+		"@vscode/prompt-tsx": "^0.2.9-alpha"
+	},
+	"devDependencies": {
+		"@types/node": "^20.5.9",
+		"@types/vscode": "^1.95.0",
+		"@typescript-eslint/eslint-plugin": "^7.14.0",
+		"@typescript-eslint/parser": "^7.14.0",
+		"eslint": "^8.26.0",
+		"typescript": "^5.5.2"
+	}
 }

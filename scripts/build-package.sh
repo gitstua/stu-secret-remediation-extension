@@ -1,1 +1,1 @@
-npx @vscode/vsce package -o dist
+npx @vscode/vsce package 
